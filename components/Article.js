@@ -94,13 +94,13 @@ const data = [
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
-
-    {three separate paragraph elements}
-
-    <span class="expandButton">+</span>
+  <div class="article">                          // article
+    <h2>{title of the article}</h2>              // title
+    <p class="date">{date of the article}</p>    // date
+                                                 // firstParagraph
+    {three separate paragraph elements}          // secondParagraph
+                                                 // thirdParagraph
+    <span class="expandButton">+</span>          // button
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
@@ -126,13 +126,29 @@ const date = document.createElement('p')
 const firstParagraph = document.createElement('p')
 const secondParagraph = document.createElement('p')
 const thirdParagraph = document.createElement('p')
-const button = document.createElement('button')
+const button = document.createElement('span')
 
 //appendChild
+article.appendChild(title)
+title.appendChild(date)
+date.appendChild(firstParagraph)
+firstParagraph.appendChild(secondParagraph)
+secondParagraph.appendChild(thirdParagraph)
+article.appendChild(button);
 
-//classList
+//classList: article div "article", date p "date", firstPara p "firstParagraph", secondPara p "secondParagraph", thirdPara p "thirdParagraph"
+article.classList.add('article')
+date.classList.add('date')
+firstParagraph.classList.add('firstParagraph')
+secondParagraph.classList.add('secondParagraph')
+thirdParagraph.classList.add('thirdParagraph')
 
 //textContent
+title.textContent = title;
+date.textContent = date;
+firstParagraph.textContent = firstParagraph;
+secondParagraph.textContent = secondParagraph;
+thirdParagraph.textContent = thirdParagraph;
 
 //eventListener
 
