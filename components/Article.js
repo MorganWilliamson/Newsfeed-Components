@@ -90,7 +90,7 @@ const data = [
 ];
 
 /*
-  Step 1: Write a component called 'articleMaker' to create an article. ()
+  Step 1: Write a component called 'articleMaker' to create an article. (*)
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
@@ -109,15 +109,16 @@ const data = [
   Step 3: Don't forget to return something from your function! (*)
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html). ()
+  to create a div.article element and append it to the DOM inside div.articles (see index.html). (*)
 
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others. ()
   Refresh the page to see the new article.
 */
 
-function articleMaker(articleAttr){
 // destructure
-const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleAttr;
+const articles = document.querySelector('.articles')
+
+function articleMaker(articArg){
 
 //create elements
 const article = document.createElement('div')
@@ -142,6 +143,7 @@ date.classList.add('date')
 firstParagraph.classList.add('firstParagraph')
 secondParagraph.classList.add('secondParagraph')
 thirdParagraph.classList.add('thirdParagraph')
+button.classList.add('expand-button')
 
 //textContent
 title.textContent = title;
@@ -151,8 +153,21 @@ secondParagraph.textContent = secondParagraph;
 thirdParagraph.textContent = thirdParagraph;
 
 //eventListener
+button.addEventListener('click', (event) => {
+  
+})
 
-  //return article;
+
+return articArg;
 }
 
-//articleMaker()
+articleMaker('articArg')
+  
+
+
+
+  // data.forEach(articleObject => {
+  // const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
+  // const article = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  // articles.appendChild(article)
+  // })
