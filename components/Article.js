@@ -116,9 +116,13 @@ const data = [
 */
 
 // destructure
+console.log(data)
+
 const articles = document.querySelector('.articles')
 
-function articleMaker(newArticle){
+function articleMaker(articleArg){
+
+
 
 //create elements
 const article = document.createElement('div')
@@ -154,7 +158,7 @@ thirdParagraph.textContent = thirdParagraph;
 
 //eventListener
 button.addEventListener('click', (event) => {
-  article.classList.toggle('.article-open')
+  article.classList.toggle('article-open')
 })
 
 
@@ -165,6 +169,6 @@ articleMaker(articles)
   
   data.forEach(articleObject => {
   const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
-  const articArg = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
-  articles.appendChild(articArg)
+  const newArticle = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  articles.appendChild(newArticle)
   })
