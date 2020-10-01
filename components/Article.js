@@ -122,47 +122,45 @@ const articles = document.querySelector('.articles')
 
 function articleMaker(articleArg){
 
+  //create elements
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const firstParagraph = document.createElement('p')
+  const secondParagraph = document.createElement('p')
+  const thirdParagraph = document.createElement('p')
+  const button = document.createElement('span')
+
+  //appendChild
+  article.appendChild(title)
+  title.appendChild(date)
+  date.appendChild(firstParagraph)
+  firstParagraph.appendChild(secondParagraph)
+  secondParagraph.appendChild(thirdParagraph)
+  article.appendChild(button);
+
+  //classList: article div "article", date p "date", firstPara p "firstParagraph", secondPara p "secondParagraph", thirdPara p "thirdParagraph"
+  article.classList.add('article')
+  date.classList.add('date')
+  firstParagraph.classList.add('firstParagraph')
+  secondParagraph.classList.add('secondParagraph')
+  thirdParagraph.classList.add('thirdParagraph')
+  button.classList.add('expand-button')
+
+  //textContent
+  title.textContent = title;
+  date.textContent = date;
+  firstParagraph.textContent = firstParagraph;
+  secondParagraph.textContent = secondParagraph;
+  thirdParagraph.textContent = thirdParagraph;
+
+  //eventListener
+  button.addEventListener('click', (event) => {
+    article.classList.toggle('article-open')
+  })
 
 
-//create elements
-const article = document.createElement('div')
-const title = document.createElement('h2')
-const date = document.createElement('p')
-const firstParagraph = document.createElement('p')
-const secondParagraph = document.createElement('p')
-const thirdParagraph = document.createElement('p')
-const button = document.createElement('span')
-
-//appendChild
-article.appendChild(title)
-title.appendChild(date)
-date.appendChild(firstParagraph)
-firstParagraph.appendChild(secondParagraph)
-secondParagraph.appendChild(thirdParagraph)
-article.appendChild(button);
-
-//classList: article div "article", date p "date", firstPara p "firstParagraph", secondPara p "secondParagraph", thirdPara p "thirdParagraph"
-article.classList.add('article')
-date.classList.add('date')
-firstParagraph.classList.add('firstParagraph')
-secondParagraph.classList.add('secondParagraph')
-thirdParagraph.classList.add('thirdParagraph')
-button.classList.add('expand-button')
-
-//textContent
-title.textContent = title;
-date.textContent = date;
-firstParagraph.textContent = firstParagraph;
-secondParagraph.textContent = secondParagraph;
-thirdParagraph.textContent = thirdParagraph;
-
-//eventListener
-button.addEventListener('click', (event) => {
-  article.classList.toggle('article-open')
-})
-
-
-return article;
+  return date;
 }
 
 articleMaker(articles)
