@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Cool Guys Do Cool Guy Things at Cool Place',
+    date: 'Happening RIGHT NOW', 
+    firstParagraph: "Zip. That easy. I started painting as a hobby when I was little. I didn't know I had any talent. I believe talent is just a pursued interest. Anybody can do what I do. Let's make some happy little clouds in our world. Painting should do one thing. It should put happiness in your heart. Just think about these things in your mind and drop em' on canvas. We wash our brush with odorless thinner.",
+    secondParagraph: "In your imagination you can go anywhere you want. See there how easy that is. Isn't it great to do something you can't fail at? We tell people sometimes: we're like drug dealers, come into town and get everybody absolutely addicted to painting. It doesn't take much to get you addicted. Maybe there was an old trapper that lived out here and maybe one day he went to check his beaver traps, and maybe he fell into the river and drowned. We have all at one time or another mixed some mud.",
+    thirdParagraph: "Clouds are free. They just float around the sky all day and have fun. Let that brush dance around there and play. In your imagination you can go anywhere you want. Don't be bashful drop me a line. We can always carry this a step further. There's really no end to this. We're not trying to teach you a thing to copy. We're just here to teach you a technique, then let you loose into the world."
   }
 ];
 
@@ -111,7 +118,7 @@ const data = [
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html). (*)
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others. ()
+  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others. (*)
   Refresh the page to see the new article.
 */
 
