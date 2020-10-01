@@ -129,15 +129,17 @@ function articleMaker(articleArg){
   const firstParagraph = document.createElement('p')
   const secondParagraph = document.createElement('p')
   const thirdParagraph = document.createElement('p')
-  const button = document.createElement('span')
+  const spanBtn = document.createElement('span')
+  
 
   //appendChild
-  article.appendChild(title)
-  title.appendChild(date)
-  date.appendChild(firstParagraph)
-  firstParagraph.appendChild(secondParagraph)
-  secondParagraph.appendChild(thirdParagraph)
-  article.appendChild(button);
+  article.append(title)
+  article.append(date)
+  article.append(firstParagraph)
+  article.append(secondParagraph)
+  article.append(thirdParagraph)
+  article.append(spanBtn)
+  
 
   //classList: article div "article", date p "date", firstPara p "firstParagraph", secondPara p "secondParagraph", thirdPara p "thirdParagraph"
   article.classList.add('article')
@@ -145,28 +147,33 @@ function articleMaker(articleArg){
   firstParagraph.classList.add('firstParagraph')
   secondParagraph.classList.add('secondParagraph')
   thirdParagraph.classList.add('thirdParagraph')
-  button.classList.add('expand-button')
+  spanBtn.className = "expandButton"
 
   //textContent
-  title.textContent = title;
-  date.textContent = date;
-  firstParagraph.textContent = firstParagraph;
-  secondParagraph.textContent = secondParagraph;
-  thirdParagraph.textContent = thirdParagraph;
+  title.textContent = articleArg.title;
+  date.textContent = articleArg.date;
+  firstParagraph.textContent = articleArg.firstParagraph;
+  secondParagraph.textContent = articleArg.secondParagraph;
+  thirdParagraph.textContent = articleArg.thirdParagraph;
+  spanBtn.textContent = '+'
 
   //eventListener
-  button.addEventListener('click', (event) => {
+  spanBtn.addEventListener('click', () => {
     article.classList.toggle('article-open')
   })
 
-
-  return date;
+  return article;
 }
 
 articleMaker(articles)
   
-  data.forEach(articleObject => {
-  const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
-  const newArticle = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
-  articles.appendChild(newArticle)
+  // data.forEach(articleObject => {
+  // const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
+  // const newArticle = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  // articles.appendChild(newArticle)
+  // })
+
+  data.forEach(item => {
+    const articles = document.querySelector('.articles')
+    articles.append(articleMaker(item))
   })
