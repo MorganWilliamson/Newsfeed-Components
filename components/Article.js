@@ -104,7 +104,7 @@ const data = [
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article. ()
+  This listener should toggle the class 'article-open' on div.article. (*)
 
   Step 3: Don't forget to return something from your function! (*)
 
@@ -118,7 +118,7 @@ const data = [
 // destructure
 const articles = document.querySelector('.articles')
 
-function articleMaker(articArg){
+function articleMaker(newArticle){
 
 //create elements
 const article = document.createElement('div')
@@ -154,20 +154,17 @@ thirdParagraph.textContent = thirdParagraph;
 
 //eventListener
 button.addEventListener('click', (event) => {
-  
+  article.classList.toggle('.article-open')
 })
 
 
-return articArg;
+return article;
 }
 
-articleMaker('articArg')
+articleMaker(articles)
   
-
-
-
-  // data.forEach(articleObject => {
-  // const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
-  // const article = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
-  // articles.appendChild(article)
-  // })
+  data.forEach(articleObject => {
+  const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
+  const articArg = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  articles.appendChild(articArg)
+  })
