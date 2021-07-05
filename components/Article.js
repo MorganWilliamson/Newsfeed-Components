@@ -86,31 +86,101 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Cool Guys Do Cool Guy Things at Cool Place',
+    date: 'Happening RIGHT NOW', 
+    firstParagraph: "Zip. That easy. I started painting as a hobby when I was little. I didn't know I had any talent. I believe talent is just a pursued interest. Anybody can do what I do. Let's make some happy little clouds in our world. Painting should do one thing. It should put happiness in your heart. Just think about these things in your mind and drop em' on canvas. We wash our brush with odorless thinner.",
+    secondParagraph: "In your imagination you can go anywhere you want. See there how easy that is. Isn't it great to do something you can't fail at? We tell people sometimes: we're like drug dealers, come into town and get everybody absolutely addicted to painting. It doesn't take much to get you addicted. Maybe there was an old trapper that lived out here and maybe one day he went to check his beaver traps, and maybe he fell into the river and drowned. We have all at one time or another mixed some mud.",
+    thirdParagraph: "Clouds are free. They just float around the sky all day and have fun. Let that brush dance around there and play. In your imagination you can go anywhere you want. Don't be bashful drop me a line. We can always carry this a step further. There's really no end to this. We're not trying to teach you a thing to copy. We're just here to teach you a technique, then let you loose into the world."
   }
 ];
 
 /*
-  Step 1: Write a component called 'articleMaker' to create an article.
+  Step 1: Write a component called 'articleMaker' to create an article. (*)
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
-
-    {three separate paragraph elements}
-
-    <span class="expandButton">+</span>
+  <div class="article">                          // article
+    <h2>{title of the article}</h2>              // title
+    <p class="date">{date of the article}</p>    // date
+                                                 // firstParagraph
+    {three separate paragraph elements}          // secondParagraph
+                                                 // thirdParagraph
+    <span class="expandButton">+</span>          // button
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
+  This listener should toggle the class 'article-open' on div.article. (*)
 
-  Step 3: Don't forget to return something from your function!
+  Step 3: Don't forget to return something from your function! (*)
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
-  to create a div.article element and append it to the DOM inside div.articles (see index.html).
+  to create a div.article element and append it to the DOM inside div.articles (see index.html). (*)
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others. (*)
   Refresh the page to see the new article.
 */
+
+// destructure
+console.log(data)
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(articleArg){
+
+  //create elements
+  const article = document.createElement('div')
+  const title = document.createElement('h2')
+  const date = document.createElement('p')
+  const firstParagraph = document.createElement('p')
+  const secondParagraph = document.createElement('p')
+  const thirdParagraph = document.createElement('p')
+  const spanBtn = document.createElement('span')
+  
+
+  //appendChild
+  article.append(title)
+  article.append(date)
+  article.append(firstParagraph)
+  article.append(secondParagraph)
+  article.append(thirdParagraph)
+  article.append(spanBtn)
+  
+
+  //classList: article div "article", date p "date", firstPara p "firstParagraph", secondPara p "secondParagraph", thirdPara p "thirdParagraph"
+  article.classList.add('article')
+  date.classList.add('date')
+  firstParagraph.classList.add('firstParagraph')
+  secondParagraph.classList.add('secondParagraph')
+  thirdParagraph.classList.add('thirdParagraph')
+  spanBtn.className = "expandButton"
+
+  //textContent
+  title.textContent = articleArg.title;
+  date.textContent = articleArg.date;
+  firstParagraph.textContent = articleArg.firstParagraph;
+  secondParagraph.textContent = articleArg.secondParagraph;
+  thirdParagraph.textContent = articleArg.thirdParagraph;
+  spanBtn.textContent = '+'
+
+  //eventListener
+  spanBtn.addEventListener('click', () => {
+    article.classList.toggle('article-open')
+  })
+
+  return article;
+}
+
+articleMaker(articles)
+  
+  // data.forEach(articleObject => {
+  // const { title, date, firstParagraph, secondParagraph, thirdParagraph } = articleObject;
+  // const newArticle = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+  // articles.appendChild(newArticle)
+  // })
+
+  data.forEach(item => {
+    const articles = document.querySelector('.articles')
+    articles.append(articleMaker(item))
+  })
